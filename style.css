@@ -1,0 +1,500 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  background-color: hsl(217deg, 100%, 97%);
+}
+
+main {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: hsl(213deg, 96%, 18%);
+}
+
+h3 {
+  font-size: 1rem;
+  color: hsl(231deg, 11%, 63%);
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+.btn-back {
+  cursor: pointer;
+  background-color: hsl(0deg, 0%, 100%);
+  border: none;
+  color: hsl(231deg, 11%, 63%);
+  font-weight: 500;
+}
+
+.btn-next,
+.btn-next-desktop {
+  cursor: pointer;
+  background-color: hsl(213deg, 96%, 18%);
+  color: hsl(217deg, 100%, 97%);
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.btn-confirm {
+  cursor: pointer;
+  background-color: hsl(243deg, 100%, 62%);
+  color: hsl(217deg, 100%, 97%);
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.highlight {
+  color: hsl(213deg, 96%, 18%);
+  font-weight: 500;
+}
+
+.sidebar {
+  height: 10rem;
+  background-image: url(assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+.sidebar .sidebar__steps {
+  margin-top: 2rem;
+}
+.sidebar .sidebar__steps .btn-steps {
+  line-height: 0.5;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  border: 1px solid hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(243deg, 100%, 62%);
+}
+.sidebar .sidebar__steps .btn-steps.active {
+  background-color: hsl(206deg, 94%, 87%);
+  color: hsl(213deg, 96%, 18%);
+  border: none;
+}
+.sidebar .sidebar__info {
+  display: none;
+}
+
+.form-wrapper {
+  display: flex;
+  position: fixed;
+  top: 5.75rem;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.form-wrapper .form {
+  background-color: hsl(0deg, 0%, 100%);
+  margin: 0 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+}
+.form-wrapper .form label {
+  font-size: 0.75rem;
+  color: hsl(213deg, 96%, 18%);
+}
+.form-wrapper .form input {
+  width: 100%;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  border-radius: 0.25rem;
+  font-size: 0.9375rem;
+  color: hsl(231deg, 11%, 63%);
+  font-weight: 500;
+  margin-bottom: 0.875rem;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.bottom-nav-desktop {
+  display: none;
+}
+
+.available-plans {
+  display: flex;
+  flex-direction: column;
+}
+.available-plans .plan {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  background-color: hsl(0deg, 0%, 100%);
+}
+.available-plans .plan .plan__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+.available-plans .plan .plan__details p {
+  color: hsl(231deg, 11%, 63%);
+  font-size: 0.875rem;
+}
+.available-plans .plan .plan__details .yearly {
+  color: hsl(213deg, 96%, 18%);
+}
+.available-plans .plan:focus {
+  border: 1px solid hsl(243deg, 100%, 62%);
+  background-color: hsl(217deg, 100%, 97%);
+}
+.available-plans .plan.yearly {
+  padding: 0.875rem;
+}
+.available-plans .subscription-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(217deg, 100%, 97%);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 0.75rem;
+}
+.available-plans .subscription-time span:not(.highlight) {
+  color: hsl(231deg, 11%, 63%);
+}
+.available-plans .subscription-time .switch {
+  cursor: pointer;
+  display: inline-block;
+}
+.available-plans .subscription-time .switch .toggle-switch {
+  position: relative;
+  display: inline-block;
+  background-color: hsl(213deg, 96%, 18%);
+  height: 1rem;
+  width: 2rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  margin: 0 1rem;
+}
+.available-plans .subscription-time .switch .toggle-switch:before,
+.available-plans .subscription-time .switch .toggle-switch:after {
+  content: "";
+}
+.available-plans .subscription-time .switch .toggle-switch:before {
+  display: block;
+  border-radius: 50%;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 0.75rem;
+  height: 0.75rem;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.25s;
+}
+.available-plans .subscription-time .switch .toggle-checkbox:checked + .toggle-switch:before {
+  left: 1.125rem;
+}
+.available-plans .subscription-time .switch .toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.available-add-ons {
+  display: flex;
+  flex-direction: column;
+}
+.available-add-ons .add-on {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid hsl(229deg, 24%, 87%);
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  background-color: hsl(0deg, 0%, 100%);
+  justify-content: space-between;
+}
+.available-add-ons .add-on label {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 4.5fr 0.25fr;
+  justify-content: space-between;
+  align-items: center;
+}
+.available-add-ons .add-on label .add-on__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+  flex: 1;
+}
+.available-add-ons .add-on label .add-on__details p {
+  color: hsl(231deg, 11%, 63%);
+  font-size: 0.75rem;
+}
+.available-add-ons .add-on label .add-on__details span {
+  font-size: 0.875rem;
+}
+.available-add-ons .add-on label .add-on__price {
+  font-size: 0.75rem;
+  color: hsl(243deg, 100%, 62%);
+}
+
+.summary {
+  background-color: hsl(231deg, 100%, 99%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: hsl(231deg, 11%, 63%);
+  margin: 1rem 0;
+}
+.summary hr {
+  margin: 0.5rem 0;
+  border: 1px solid hsl(229deg, 24%, 87%);
+}
+.summary .selected-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.summary .selected-plan .selected-plan__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.summary .selected-plan .selected-plan__details .btn-change-plan {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: hsl(231deg, 11%, 63%);
+  text-decoration: underline;
+}
+.summary .selected-add-ons {
+  display: flex;
+  flex-direction: column;
+}
+.summary .selected-add-ons .selected-add-on {
+  display: flex;
+  justify-content: space-between;
+}
+.summary .selected-add-ons .selected-add-on:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.summary .selected-add-ons .selected-add-on__price {
+  font-weight: 500;
+}
+
+.total {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: hsl(231deg, 11%, 63%);
+}
+.total .total-price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: hsl(243deg, 100%, 62%);
+}
+
+.form.thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+}
+.form.thank-you img {
+  margin-bottom: 2rem;
+}
+.form.thank-you h3 {
+  text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+  .bottom-nav {
+    display: none;
+  }
+  .card {
+    display: flex;
+    width: 800px;
+    height: 600px;
+    margin: 5rem auto;
+    background-color: hsl(0deg, 0%, 100%);
+    border-radius: 0.75rem;
+  }
+  .card .sidebar {
+    background-image: url(/assets/images/bg-sidebar-desktop.svg);
+    height: calc(100% - 2rem);
+    border-radius: 0.75rem;
+    margin: 1rem 0 1rem 1rem;
+    width: 30%;
+  }
+  .card .sidebar .sidebar__steps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;
+    gap: 2rem;
+  }
+  .card .sidebar .sidebar__info {
+    margin-left: 0.5rem;
+    margin-top: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .card .sidebar .sidebar__info .step__info p {
+    color: hsl(229deg, 24%, 87%);
+    font-size: 0.75rem;
+  }
+  .card .sidebar .sidebar__info .step__info .higlight {
+    color: hsl(0deg, 0%, 100%);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+  }
+  .card .form-wrapper {
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    padding: 2rem;
+    align-content: space-between;
+    width: 70%;
+  }
+  .card .form-wrapper .form {
+    margin: 0;
+  }
+  .card .form-wrapper .form label {
+    font-size: 0.875rem;
+  }
+  .card .form-wrapper .bottom-nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.75rem;
+  }
+  .available-plans {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .available-plans .plan {
+    width: 30%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 1rem 0 1rem 1rem;
+  }
+  .available-plans .plan .plan__details {
+    margin: 0;
+  }
+  .available-plans .subscription-time {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */

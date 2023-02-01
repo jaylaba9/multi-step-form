@@ -1,0 +1,576 @@
+// COLORS
+$clr-marine-blue: hsl(213, 96%, 18%);
+$clr-purplish-blue: hsl(243, 100%, 62%);
+$clr-pastel-blue: hsl(228, 100%, 84%);
+$clr-light-blue: hsl(206, 94%, 87%);
+$clr-strawberry-red: hsl(354, 84%, 57%);
+
+$clr-cool-gray: hsl(231, 11%, 63%);
+$clr-light-gray: hsl(229, 24%, 87%);
+$clr-magnolia: hsl(217, 100%, 97%);
+$clr-alabaster: hsl(231, 100%, 99%);
+$clr-white: hsl(0, 0%, 100%);
+
+// FONTS
+$ff-primary: "Ubuntu", sans-serif;
+
+// MIXINS
+@mixin available-items {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid $clr-light-gray;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  background-color: $clr-white;
+}
+
+@mixin item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// -------------- GENERAL STYLING --------------
+body {
+  font-family: $ff-primary;
+  font-size: 1rem;
+  background-color: $clr-magnolia;
+}
+
+main {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: $clr-marine-blue;
+}
+
+h3 {
+  font-size: 1rem;
+  color: $clr-cool-gray;
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+// -------------- REUSABLES --------------
+.btn-back {
+  cursor: pointer;
+  background-color: $clr-white;
+  border: none;
+  color: $clr-cool-gray;
+  font-weight: 500;
+}
+
+.btn-next,
+.btn-next-desktop {
+  cursor: pointer;
+  background-color: $clr-marine-blue;
+  color: $clr-magnolia;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.btn-confirm {
+  cursor: pointer;
+  background-color: $clr-purplish-blue;
+  color: $clr-magnolia;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.highlight {
+  color: $clr-marine-blue;
+  font-weight: 500;
+}
+
+// -------------- SIDEBAR --------------
+.sidebar {
+  height: 10rem;
+  background-image: url(assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+
+  .sidebar__steps {
+    margin-top: 2rem;
+
+    .btn-steps {
+      line-height: 0.5;
+      padding: 0.75rem;
+      margin: 0 0.25rem;
+      // font-weight: 700;
+      border: 1px solid $clr-white;
+      border-radius: 50%;
+      color: $clr-white;
+      background-color: $clr-purplish-blue;
+    }
+
+    .btn-steps.active {
+      background-color: $clr-light-blue;
+      color: $clr-marine-blue;
+      border: none;
+    }
+  }
+  .sidebar__info {
+    display: none;
+  }
+}
+
+// -------------- FORM --------------
+.form-wrapper {
+  display: flex;
+  position: fixed;
+  top: 5.75rem;
+  left: 0;
+  right: 0;
+  justify-content: center;
+
+  .form {
+    background-color: $clr-white;
+    margin: 0 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+
+    label {
+      font-size: 0.75rem;
+      color: $clr-marine-blue;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.375rem 0.875rem;
+      border: 1px solid $clr-light-gray;
+      border-radius: 0.25rem;
+      font-size: 0.9375rem;
+      color: $clr-cool-gray;
+      font-weight: 500;
+      margin-bottom: 0.875rem;
+    }
+  }
+}
+
+// -------------- BOTTOM NAVIGATION --------------
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  background-color: $clr-white;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.bottom-nav-desktop {
+  display: none;
+}
+
+// -------------- PLANS --------------
+.available-plans {
+  display: flex;
+  flex-direction: column;
+
+  .plan {
+    @include available-items;
+
+    .plan__details {
+      @include item-details;
+
+      p {
+        color: $clr-cool-gray;
+        font-size: 0.875rem;
+      }
+
+      .yearly {
+        color: $clr-marine-blue;
+      }
+    }
+  }
+
+  .plan:focus {
+    border: 1px solid $clr-purplish-blue;
+    background-color: $clr-magnolia;
+  }
+
+  .plan.yearly {
+    padding: 0.875rem;
+  }
+
+  .subscription-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $clr-magnolia;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+
+    span:not(.highlight) {
+      color: $clr-cool-gray;
+    }
+
+    .switch {
+      cursor: pointer;
+      display: inline-block;
+      // margin: 0.75rem 1rem 0 1rem;
+
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        background-color: $clr-marine-blue;
+        height: 1rem;
+        width: 2rem;
+        border-radius: 0.5rem;
+        vertical-align: middle;
+        margin: 0 1rem;
+      }
+
+      .toggle-switch:before,
+      .toggle-switch:after {
+        content: "";
+      }
+
+      .toggle-switch:before {
+        display: block;
+        border-radius: 50%;
+        background-color: $clr-white;
+        width: 0.75rem;
+        height: 0.75rem;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: left 0.25s;
+      }
+
+      .toggle-checkbox:checked + .toggle-switch:before {
+        left: 1.125rem;
+      }
+
+      .toggle-checkbox {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+// -------------- ADD-ONS --------------
+.available-add-ons {
+  display: flex;
+  flex-direction: column;
+
+  .add-on {
+    @include available-items;
+    justify-content: space-between;
+
+    label {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.5fr 4.5fr 0.25fr;
+      justify-content: space-between;
+      align-items: center;
+      .add-on__details {
+        @include item-details;
+        flex: 1;
+
+        p {
+          color: $clr-cool-gray;
+          font-size: 0.75rem;
+        }
+
+        span {
+          font-size: 0.875rem;
+        }
+      }
+
+      .add-on__price {
+        font-size: 0.75rem;
+        color: $clr-purplish-blue;
+      }
+    }
+  }
+}
+
+// -------------- FINISHING UP --------------
+.summary {
+  background-color: $clr-alabaster;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: $clr-cool-gray;
+  margin: 1rem 0;
+
+  hr {
+    margin: 0.5rem 0;
+    border: 1px solid $clr-light-gray;
+  }
+
+  .selected-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .selected-plan__details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .btn-change-plan {
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        color: $clr-cool-gray;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .selected-add-ons {
+    display: flex;
+    flex-direction: column;
+
+    .selected-add-on {
+      display: flex;
+      justify-content: space-between;
+      // margin-bottom: 0.5rem;
+    }
+
+    .selected-add-on:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    .selected-add-on__price {
+      font-weight: 500;
+    }
+  }
+}
+
+.total {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: $clr-cool-gray;
+
+  .total-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $clr-purplish-blue;
+  }
+}
+
+// -------------- THANK YOU --------------
+.form.thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+
+  img {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}
+
+// RESPONSIVE DESIGN
+@media only screen and(min-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+
+  .card {
+    display: flex;
+    width: 800px;
+    height: 600px;
+    margin: 5rem auto;
+    background-color: $clr-white;
+    border-radius: 0.75rem;
+
+    .sidebar {
+      background-image: url(/assets/images/bg-sidebar-desktop.svg);
+      height: calc(100% - 2rem);
+      border-radius: 0.75rem;
+      margin: 1rem 0 1rem 1rem;
+      width: 30%;
+
+      .sidebar__steps {
+        // width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 3rem;
+        // margin-left: 2rem;
+        gap: 2rem;
+      }
+
+      .sidebar__info {
+        margin-left: 0.5rem;
+        margin-top: 2.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .step__info {
+          p {
+            color: $clr-light-gray;
+            font-size: 0.75rem;
+          }
+
+          .higlight {
+            color: $clr-white;
+            font-weight: 500;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+
+    .form-wrapper {
+      flex-direction: column;
+      position: relative;
+      top: 0;
+      padding: 2rem;
+      align-content: space-between;
+      width: 70%;
+
+      .form {
+        margin: 0;
+        label {
+          font-size: 0.875rem;
+        }
+      }
+
+      .bottom-nav-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.75rem;
+      }
+    }
+  }
+
+  .available-plans {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .plan {
+      width: 30%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+      padding: 1rem 0 1rem 1rem;
+
+      .plan__details {
+        margin: 0;
+      }
+    }
+
+    .subscription-time {
+      width: 100%;
+    }
+  }
+}
