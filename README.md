@@ -22,13 +22,14 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [solution](https://github.com/jaylaba9/multi-step-form)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- Semantic HTML5
+- SCSS
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- JavaScript
